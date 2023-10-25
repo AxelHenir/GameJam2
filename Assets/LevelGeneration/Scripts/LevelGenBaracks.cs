@@ -42,6 +42,7 @@ public class LevelGenBaracks : MonoBehaviour
 
 
     }
+
     private void Update()
     { 
         if (timeBtwRoom <= 0 && stopGeneration == false) 
@@ -152,7 +153,6 @@ public class LevelGenBaracks : MonoBehaviour
     
 
     }
-
 
 }
 
