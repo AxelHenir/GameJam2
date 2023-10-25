@@ -16,13 +16,14 @@ public class LevelGenBaracks : MonoBehaviour
     public float minY;
     public float maxY;
     public bool stopGeneration;
+    public SpawnFill test;
 
     public LayerMask room; //fofr destroying the room
    
 
     // time between spawning room
     private float timeBtwRoom;
-    public float startTimeBtwRoom = 0.25f; 
+    public float startTimeBtwRoom = 0.35f; 
 
 
     private int direction; //store the direction going
@@ -44,14 +45,23 @@ public class LevelGenBaracks : MonoBehaviour
     }
 
     private void Update()
-    { 
-        if (timeBtwRoom <= 0 && stopGeneration == false) 
+    {
+        if (stopGeneration == true && test.doneGeneration == true) //patchowwork solution, it work but it doesn't amke the critical path alaways accesible anymore
+        {
+            DisableBox();
+            Debug.Log("shoudl run");
+
+        }
+        if (timeBtwRoom <= 0 && stopGeneration == false)
         {
             Move();
             timeBtwRoom = startTimeBtwRoom;
-        } else {
+        }
+        else
+        {
             timeBtwRoom -= Time.deltaTime;
         }
+        
     }
 
     private void Move()
@@ -112,6 +122,9 @@ public class LevelGenBaracks : MonoBehaviour
 
                 //make a circle collider that checks the room that will be made and if it doesnt have a bottom opening it destroyes it and replace one with an opening
                 Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1,room);
+                if (roomDetection == null) {
+                    return;
+                        }
                 if (roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type != 3)
                 {
                     if (downCounter >= 2) //if two times down auto make a 4 room
@@ -139,7 +152,7 @@ public class LevelGenBaracks : MonoBehaviour
                 int rand = Random.Range(2, 4);
                 if (transform.position.y == minY) //if it's the last room at the bottom
                 {
-                    rand = 1; //tell which specific room to spawn
+                    rand = 3; //tell which specific room to spawn
                 }
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
@@ -148,20 +161,30 @@ public class LevelGenBaracks : MonoBehaviour
             else {
                 //Stop level generation
                 stopGeneration = true;
+
             }
           
-
+         
         }
-
-
-
+        if (stopGeneration== true)
+        {
+          //  DisableBox();
+        }
+       
     }
 
     private void DisableBox()
     {
+      
+        GameObject[] boxs = GameObject.FindGameObjectsWithTag("BC");
+        foreach(GameObject go in boxs)
+        {
 
-        GameObject.FindGameObjectWithTag("BC").GetComponent<BoxCollider2D>().enabled = false;
-        Debug.Log("ruining");
+            go.GetComponent<BoxCollider2D>().enabled = false;
+ 
+        }
+
+        
     }
 }
 
