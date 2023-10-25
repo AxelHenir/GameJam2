@@ -137,6 +137,10 @@ public class LevelGenBaracks : MonoBehaviour
                 transform.position = newPos;
 
                 int rand = Random.Range(2, 4);
+                if (transform.position.y == minY) //if it's the last room at the bottom
+                {
+                    rand = 1; //tell which specific room to spawn
+                }
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
                 direction = Random.Range(1, 6);// making sure it does not go back
@@ -149,11 +153,16 @@ public class LevelGenBaracks : MonoBehaviour
 
         }
 
- 
-    
+
 
     }
 
+    private void DisableBox()
+    {
+
+        GameObject.FindGameObjectWithTag("BC").GetComponent<BoxCollider2D>().enabled = false;
+        Debug.Log("ruining");
+    }
 }
 
 
