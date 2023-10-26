@@ -171,6 +171,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!1 &125687794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2306,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &501275965
 Transform:
   m_ObjectHideFlags: 0
@@ -2483,6 +2485,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &524564308
 Transform:
   m_ObjectHideFlags: 0
@@ -2531,6 +2534,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &597727092
 Transform:
   m_ObjectHideFlags: 0
@@ -2594,6 +2598,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!1 &928332464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,6 +2644,7 @@ MonoBehaviour:
   minY: -15
   maxY: 5
   stopGeneration: 0
+  test: {fileID: 0}
   room:
     serializedVersion: 2
     m_Bits: 2048
@@ -2691,6 +2697,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &953129737
 Transform:
   m_ObjectHideFlags: 0
@@ -2739,6 +2746,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &970284786
 Transform:
   m_ObjectHideFlags: 0
@@ -3023,6 +3031,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &1383869160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
@@ -3253,6 +3262,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   levelGen: {fileID: 928332465}
+  doneGeneration: 0
 --- !u!4 &1735600036
 Transform:
   m_ObjectHideFlags: 0
