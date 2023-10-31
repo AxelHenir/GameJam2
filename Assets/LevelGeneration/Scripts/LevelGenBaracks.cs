@@ -16,7 +16,7 @@ public class LevelGenBaracks : MonoBehaviour
     public float minY;
     public float maxY;
     public bool stopGeneration;
-    public SpawnFill test;
+    // public SpawnFill test;
 
     public LayerMask room; //fofr destroying the room
    
@@ -46,12 +46,12 @@ public class LevelGenBaracks : MonoBehaviour
 
     private void Update()
     {
-        if (stopGeneration == true && test.doneGeneration == true) //patchowwork solution, it work but it doesn't amke the critical path alaways accesible anymore
+       /*if (stopGeneration == true && test.doneGeneration == true) //patchowwork solution, it work but it doesn't amke the critical path alaways accesible anymore
         {
             DisableBox();
-            Debug.Log("shoudl run");
+            Debug.Log("should run");
 
-        }
+        }*/ 
         if (timeBtwRoom <= 0 && stopGeneration == false)
         {
             Move();
@@ -168,7 +168,8 @@ public class LevelGenBaracks : MonoBehaviour
         }
         if (stopGeneration== true)
         {
-          //  DisableBox();
+          DisableBox();
+            Debug.Log("should run");
         }
        
     }
