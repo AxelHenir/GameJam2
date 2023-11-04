@@ -500,7 +500,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensityEnabled: 1
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
@@ -3632,7 +3632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380018512366333037, guid: 2251967b957b4024d95d075719f9024a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.793
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8380018512366333037, guid: 2251967b957b4024d95d075719f9024a, type: 3}
       propertyPath: m_ConstrainProportionsScale
