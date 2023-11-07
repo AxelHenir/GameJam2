@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - BC
+  - Spike
   layers:
   - Default
   - TransparentFX
