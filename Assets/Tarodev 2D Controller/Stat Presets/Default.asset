@@ -16,8 +16,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   CharacterSize:
-    Height: 1.8
-    Width: 1
+    Height: 1.35
+    Width: 0.54
     StepHeight: 0.25
     CrouchHeight: 0.8
   VerticalDeadZoneThreshold: 0.3
@@ -39,7 +39,7 @@ MonoBehaviour:
   DashDuration: 0.1
   DashCooldown: 0.5
   DashEndHorizontalMultiplier: 0.5
-  AllowCrouching: 1
+  AllowCrouching: 0
   CrouchSlowDownTime: 1
   CrouchSpeedModifier: 0.3
   AllowWalls: 1
