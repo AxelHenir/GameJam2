@@ -14,6 +14,8 @@ public class Gamehandler : MonoBehaviour
     // Declare list of all prefabs that can be spawned
     public GameObject[] roomPrefabs;
     public Transform[] startingPositions;
+    public Transform[] endPositions;
+
 
     // Spawn the first room at 0,0
 
@@ -54,6 +56,7 @@ public class Gamehandler : MonoBehaviour
         // Generate the dungeon in its entirety
 
         generateDungeon();
+       
 
         // Fill dungeon with collectibles
         generateCollectibles();
@@ -94,6 +97,14 @@ public class Gamehandler : MonoBehaviour
         Instantiate(roomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
 
         Debug.Log("inital room done");
+
+        int randEndPos = Random.Range(0, endPositions.Length); //randomize the start position
+        transform.position = endPositions[randEndPos].position; //insert the coordinate of the chosen position
+        Instantiate(roomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+
+        Debug.Log("end room done");
+
+
     }
 
     void generateCollectibles(){
