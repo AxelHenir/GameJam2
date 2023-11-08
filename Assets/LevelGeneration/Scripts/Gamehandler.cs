@@ -7,14 +7,25 @@ public class Gamehandler : MonoBehaviour
 
     public GameObject[] barracksPrefabs; // An array of room prefabs to choose from.
     public GameObject[] quartersPrefabs; // An array of room prefabs to choose from.
+    public GameObject[] dungeonPrefabs; // An array of room prefabs to choose from.
+    public GameObject[] keepPrefabs; // An array of room prefabs to choose from.
+    public GameObject[] towerPrefabs; // An array of room prefabs to choose from.
+    public GameObject[] vaultPrefabs; // An array of room prefabs to choose from.
 
     public Transform barracksStart;
+    public Transform quartersStart;
+    public Transform dungeonStart;
+    public Transform keepStart;
+    public Transform towerStart;
+    public Transform vaultStart;
 
 
     public GameObject characterPrefab; // The character prefab you want to spawn.
     public Transform spawnPoint; // The transform of the spawn point.
 
-    
+    public Transform[] startingPositions;
+    public Transform[] endPositions;
+    public GameObject[] roomPrefabs;
 
     private GameObject player_;
     private int playerDeaths = 0;
@@ -26,8 +37,13 @@ public class Gamehandler : MonoBehaviour
         disbaleControls();
 
         // Generate the dungeon in its entirety
-
+        generateStartandEnd();
         generateDungeon(3,4,barracksStart,barracksPrefabs);
+        generateDungeon(3,6,quartersStart,quartersPrefabs);
+        generateDungeon(4,3,dungeonStart,dungeonPrefabs);
+        generateDungeon(2,2,keepStart,keepPrefabs);
+        generateDungeon(1,5,towerStart,towerPrefabs);
+        generateDungeon(2,3,vaultStart,vaultPrefabs);
        
 
         // Fill dungeon with collectibles
@@ -61,6 +77,39 @@ public class Gamehandler : MonoBehaviour
     void enableControls(){
 
     }
+    void generateStartandEnd()
+    {
+        // generate the start
+        int randStartingPos = Random.Range(0, startingPositions.Length); //randomize the start position
+        transform.position = startingPositions[randStartingPos].position; //insert the coordinate of the chosen position
+        if (randStartingPos == 0)
+        {
+            Instantiate(roomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+            Debug.Log("inital room done right");
+        }
+        if (randStartingPos == 1)
+        {
+            Instantiate(roomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+            Debug.Log("inital room done right");
+        }
+
+
+        int randEndPos = Random.Range(0, endPositions.Length); //randomize the start position
+        transform.position = endPositions[randEndPos].position; //insert the coordinate of the chosen position
+
+        if (randEndPos == 0)
+        {
+            Instantiate(roomPrefabs[3], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+        }
+        if (randEndPos == 1)
+        {
+            Instantiate(roomPrefabs[4], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+        }
+
+        Debug.Log("end room done");
+
+
+    }
 
     void generateDungeon(int gridWidth, int gridHeight, Transform rootPosition, GameObject[] roomPrefabs){
 
@@ -74,20 +123,6 @@ public class Gamehandler : MonoBehaviour
                 Instantiate(randomRoomPrefab, spawnPosition, Quaternion.identity);
             }
         }
-
-        // generate the start
-        // int randStartingPos = Random.Range(0,startingPositions.Length); //randomize the start position
-        // transform.position = startingPositions[randStartingPos].position; //insert the coordinate of the chosen position
-        // Instantiate(roomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-
-        // Debug.Log("inital room done");
-
-        // int randEndPos = Random.Range(0, endPositions.Length); //randomize the start position
-        // transform.position = endPositions[randEndPos].position; //insert the coordinate of the chosen position
-        // Instantiate(roomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-
-        // Debug.Log("end room done");
-
 
     }
 
