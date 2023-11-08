@@ -52,7 +52,6 @@ public class Gamehandler : MonoBehaviour
         disbaleControls();
 
         // Generate the dungeon in its entirety
-
         generateDungeon();
 
         // Fill dungeon with collectibles
@@ -88,12 +87,14 @@ public class Gamehandler : MonoBehaviour
     }
 
     void generateDungeon(){
+
         // generate the start
         int randStartingPos = Random.Range(0,startingPositions.Length); //randomize the start position
         transform.position = startingPositions[randStartingPos].position; //insert the coordinate of the chosen position
         Instantiate(roomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
 
         Debug.Log("inital room done");
+
     }
 
     void generateCollectibles(){
