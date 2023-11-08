@@ -12,6 +12,9 @@ public class Gamehandler : MonoBehaviour
     public GameObject[] towerPrefabs; // An array of room prefabs to choose from.
     public GameObject[] vaultPrefabs; // An array of room prefabs to choose from.
 
+    public GameObject[] startRoomPrefabs;
+    public GameObject[] endRoomPrefabs;
+
     public Transform barracksStart;
     public Transform quartersStart;
     public Transform dungeonStart;
@@ -25,25 +28,28 @@ public class Gamehandler : MonoBehaviour
 
     public Transform[] startingPositions;
     public Transform[] endPositions;
-    public GameObject[] roomPrefabs;
-
+    
     private GameObject player_;
     private int playerDeaths = 0;
     
     void Start(){
+
+        player_ = GameObject.FindWithTag("Player");
 
         // Screen should be black..
         // Controls are disabled during loading
         disbaleControls();
 
         // Generate the dungeon in its entirety
-        generateStartandEnd();
+        
         generateDungeon(3,4,barracksStart,barracksPrefabs);
         generateDungeon(3,6,quartersStart,quartersPrefabs);
         generateDungeon(4,3,dungeonStart,dungeonPrefabs);
         generateDungeon(2,2,keepStart,keepPrefabs);
         generateDungeon(1,5,towerStart,towerPrefabs);
         generateDungeon(2,3,vaultStart,vaultPrefabs);
+
+        //generateStartandEnd();
        
 
         // Fill dungeon with collectibles
@@ -77,20 +83,25 @@ public class Gamehandler : MonoBehaviour
     void enableControls(){
 
     }
+
     void generateStartandEnd()
     {
+
+
         // generate the start
         int randStartingPos = Random.Range(0, startingPositions.Length); //randomize the start position
         transform.position = startingPositions[randStartingPos].position; //insert the coordinate of the chosen position
         if (randStartingPos == 0)
         {
-            Instantiate(roomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-            Debug.Log("inital room done right");
+            Instantiate(startRoomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+            spawnPoint.position = transform.position;
+            //Debug.Log("inital room done right");
         }
         if (randStartingPos == 1)
         {
-            Instantiate(roomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-            Debug.Log("inital room done right");
+            Instantiate(startRoomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+            spawnPoint.position = transform.position;
+            //Debug.Log("inital room done right");
         }
 
 
@@ -99,15 +110,14 @@ public class Gamehandler : MonoBehaviour
 
         if (randEndPos == 0)
         {
-            Instantiate(roomPrefabs[3], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+            Instantiate(endRoomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
         }
         if (randEndPos == 1)
         {
-            Instantiate(roomPrefabs[4], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
+            Instantiate(endRoomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
         }
 
-        Debug.Log("end room done");
-
+        //Debug.Log("end room done");
 
     }
 
@@ -134,7 +144,7 @@ public class Gamehandler : MonoBehaviour
 
         if (characterPrefab != null && spawnPoint != null)
         {
-            player_ = Instantiate(characterPrefab, spawnPoint.position, Quaternion.identity);
+            //player_ = Instantiate(characterPrefab, spawnPoint.position, Quaternion.identity);
             playerDeaths = 0;
         }
         else
@@ -181,6 +191,10 @@ public class Gamehandler : MonoBehaviour
 
     void fadeToBlack(){
 
+    }
+
+    public void finishTheGame(){
+        Debug.Log("The game is over");
     }
 
 }
