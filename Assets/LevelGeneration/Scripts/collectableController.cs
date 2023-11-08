@@ -24,5 +24,7 @@ public class collectableController : MonoBehaviour
         spriteRenderer.enabled = false;
 
         // Sound
+        AudioSource source = GetComponent<AudioSource>();
+        source.Play();
     }
 }
