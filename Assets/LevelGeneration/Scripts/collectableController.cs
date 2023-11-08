@@ -22,5 +22,7 @@ public class collectableController : MonoBehaviour
 
     void collected(){
         spriteRenderer.enabled = false;
+
+        // Sound
     }
 }

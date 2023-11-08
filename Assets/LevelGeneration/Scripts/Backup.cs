@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Backup : MonoBehaviour
 {
-   using System.Collections.Generic;
-using UnityEngine;
-
-public class LevelGenerator : MonoBehaviour
-{
     // Declare the container of all spawned rooms
     List<GameObject> spawnedRooms = new List<GameObject>();
 
@@ -87,4 +82,4 @@ public class LevelGenerator : MonoBehaviour
         return null;
     }
 }
-}
+
