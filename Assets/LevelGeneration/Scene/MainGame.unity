@@ -659,22 +659,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barracksPrefabs:
-  - {fileID: 4430321591579460348, guid: e973ce89a178a97428b1ae89119f687d, type: 3}
+  - {fileID: 5558581715463278850, guid: d505cd1b9af6c9e43ac2fbc4c7dcc1ce, type: 3}
+  - {fileID: 5558581715463278850, guid: d505cd1b9af6c9e43ac2fbc4c7dcc1ce, type: 3}
+  - {fileID: 5558581715463278850, guid: d505cd1b9af6c9e43ac2fbc4c7dcc1ce, type: 3}
+  - {fileID: 5558581715463278850, guid: d505cd1b9af6c9e43ac2fbc4c7dcc1ce, type: 3}
+  - {fileID: 1233743122293121596, guid: a3cc46de44163314ea60000464e3c52f, type: 3}
+  - {fileID: 8761834205283409487, guid: 4ace64d6069a50b42ba1ae7451135e50, type: 3}
+  - {fileID: 6470778206428803600, guid: c4834a6ca3f369547a2f73199ce70fdd, type: 3}
+  - {fileID: 9022183068122072596, guid: dfc66d7ed524bd042b8d720a1c48e41d, type: 3}
   quartersPrefabs:
-  - {fileID: 4430321591579460348, guid: e973ce89a178a97428b1ae89119f687d, type: 3}
+  - {fileID: 6470778206428803600, guid: c4834a6ca3f369547a2f73199ce70fdd, type: 3}
+  - {fileID: 8761834205283409487, guid: 4ace64d6069a50b42ba1ae7451135e50, type: 3}
+  - {fileID: 1233743122293121596, guid: a3cc46de44163314ea60000464e3c52f, type: 3}
+  - {fileID: 1010897813762159094, guid: 0a083baf2e604934e8c82c6f377b728f, type: 3}
+  - {fileID: 3668424992158361872, guid: 15afb3216ce5480408d846bb1183e241, type: 3}
   dungeonPrefabs:
-  - {fileID: 8839016835244361470, guid: 800d61d29b8cb6f4dbec508463cbe2dd, type: 3}
+  - {fileID: 5558581715463278850, guid: d505cd1b9af6c9e43ac2fbc4c7dcc1ce, type: 3}
+  - {fileID: 7639615334532152911, guid: 13756b1e937946d48ad039586ce4ff6c, type: 3}
+  - {fileID: 5016382764623684340, guid: efb7136dc0eb7984ca31d0d372c9a7f7, type: 3}
+  - {fileID: 7137169196638249261, guid: 0936e89390de3e64691d3ef41693cd1d, type: 3}
+  - {fileID: 1233743122293121596, guid: a3cc46de44163314ea60000464e3c52f, type: 3}
+  - {fileID: 8761834205283409487, guid: 4ace64d6069a50b42ba1ae7451135e50, type: 3}
+  - {fileID: 6470778206428803600, guid: c4834a6ca3f369547a2f73199ce70fdd, type: 3}
+  - {fileID: 9022183068122072596, guid: dfc66d7ed524bd042b8d720a1c48e41d, type: 3}
   keepPrefabs:
+  - {fileID: 8839016835244361470, guid: 800d61d29b8cb6f4dbec508463cbe2dd, type: 3}
+  - {fileID: 9231063921965395, guid: 95cfaa7b779082b4c9cf6633da24d8d6, type: 3}
+  - {fileID: 3668424992158361872, guid: 15afb3216ce5480408d846bb1183e241, type: 3}
+  - {fileID: 1010897813762159094, guid: 0a083baf2e604934e8c82c6f377b728f, type: 3}
   - {fileID: 1010897813762159094, guid: 0a083baf2e604934e8c82c6f377b728f, type: 3}
   towerPrefabs:
-  - {fileID: 9231063921965395, guid: 95cfaa7b779082b4c9cf6633da24d8d6, type: 3}
+  - {fileID: 1233743122293121596, guid: a3cc46de44163314ea60000464e3c52f, type: 3}
+  - {fileID: 8761834205283409487, guid: 4ace64d6069a50b42ba1ae7451135e50, type: 3}
+  - {fileID: 6470778206428803600, guid: c4834a6ca3f369547a2f73199ce70fdd, type: 3}
+  - {fileID: 9022183068122072596, guid: dfc66d7ed524bd042b8d720a1c48e41d, type: 3}
+  - {fileID: 8692745400718352826, guid: cd7af9aa1fbd7a142a296c7385ddbe15, type: 3}
+  - {fileID: 4652989380899562844, guid: 145a23aa25622bc41882b3fc351ca37f, type: 3}
   vaultPrefabs:
-  - {fileID: 3668424992158361872, guid: 15afb3216ce5480408d846bb1183e241, type: 3}
+  - {fileID: 5558581715463278850, guid: d505cd1b9af6c9e43ac2fbc4c7dcc1ce, type: 3}
+  - {fileID: 7639615334532152911, guid: 13756b1e937946d48ad039586ce4ff6c, type: 3}
+  - {fileID: 5016382764623684340, guid: efb7136dc0eb7984ca31d0d372c9a7f7, type: 3}
+  - {fileID: 7137169196638249261, guid: 0936e89390de3e64691d3ef41693cd1d, type: 3}
   startRoomPrefabs:
   - {fileID: 4585650407228602236, guid: d50f93fd73802ad438a78b154010f1f4, type: 3}
   - {fileID: 6241711880236361792, guid: dbca09d3309ce0c4db70f3b299a4f917, type: 3}
-  endRoomPrefabs:
-  - {fileID: 2026255547}
+  endRoomPrefabs: []
   barracksStart: {fileID: 240986463}
   quartersStart: {fileID: 351219117}
   dungeonStart: {fileID: 147191622}
@@ -1007,6 +1036,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 3225918837190407599, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_Size.x
+      value: 0.67999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225918837190407599, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_Size.y
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225918837190407599, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.85
@@ -1046,6 +1099,14 @@ PrefabInstance:
     - target: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226173444218481837, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676437197258341062, guid: 2251967b957b4024d95d075719f9024a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.193
       objectReference: {fileID: 0}
     - target: {fileID: 7993724596939523770, guid: 2251967b957b4024d95d075719f9024a, type: 3}
       propertyPath: _maxSquishForce
