@@ -13,14 +13,20 @@ public class Backup : MonoBehaviour
     // Declare list of all prefabs that can be spawned
     public GameObject[] roomPrefabs;
 
+    // Maximum number of rooms to spawn
+    public int maxRoomsToSpawn = 10;
+    
+    // Counter for the number of spawned rooms
+    private int spawnedRoomCount = 0;
+
     
     
     // Spawn the first room at 0,0
     void Start()
     {
-        // Spawn the first room at (0, 0) and add it to spawnedRooms
-        GameObject firstRoom = Instantiate(roomPrefabs[0], Vector2.zero, Quaternion.identity);
+        GameObject firstRoom = Instantiate(roomPrefabs[0], Vector3.zero, Quaternion.identity);
         spawnedRooms.Add(firstRoom);
+        spawnedRoomCount++;
 
         // Add the adjacent rooms to availableRooms
         AddAdjacentRooms(Vector2.zero, firstRoom);
@@ -29,6 +35,11 @@ public class Backup : MonoBehaviour
     // Function to add adjacent rooms to availableRooms
     void AddAdjacentRooms(Vector2 position, GameObject room)
     {
+
+        // Check if the maximum room limit has been reached
+        if (spawnedRoomCount >= maxRoomsToSpawn)
+            return;
+            
         // Check if the room has openings in each direction
         if (room.CompareTag("OpenAbove"))
         {
