@@ -8,8 +8,7 @@ public class Gamehandler : MonoBehaviour
     public GameObject[] barracksPrefabs; // An array of room prefabs to choose from.
     public GameObject[] quartersPrefabs; // An array of room prefabs to choose from.
 
-    public Transform[] startingPositions;
-    public Transform[] endPositions;
+    public Transform barracksStart;
 
 
     public GameObject characterPrefab; // The character prefab you want to spawn.
@@ -28,7 +27,7 @@ public class Gamehandler : MonoBehaviour
 
         // Generate the dungeon in its entirety
 
-        generateDungeon();
+        generateDungeon(3,4,barracksStart,barracksPrefabs);
        
 
         // Fill dungeon with collectibles
@@ -69,10 +68,10 @@ public class Gamehandler : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                Vector3 spawnPosition = new Vector3(rootPosition.x * 32, rootPosition.y * 18, 0);
+                Vector3 spawnPosition = new Vector3(rootPosition.position.x + x * 32, rootPosition.position.y + y * 18, 0);
                 int randomRoomIndex = Random.Range(0, roomPrefabs.Length);
                 GameObject randomRoomPrefab = roomPrefabs[randomRoomIndex];
-                Instantiate(randomRoomPrefab, spawnPosition, Quaternion.identity, transform);
+                Instantiate(randomRoomPrefab, spawnPosition, Quaternion.identity);
             }
         }
 
