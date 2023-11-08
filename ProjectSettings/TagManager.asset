@@ -4,9 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Collectable
-  - BC
-  - Spike
+  - TBLR
+  - T
+  - B
+  - L
+  - R
+  - TB
+  - LR
+  - TR
+  - TL
+  - BR
+  - BL
+  - TLB
+  - LBR
+  - TRB
+  - RTL
   layers:
   - Default
   - TransparentFX
