@@ -5,8 +5,41 @@ using UnityEngine;
 public class Gamehandler : MonoBehaviour
 {
 
+    // Declare the container of all spawned rooms
+    List<GameObject> spawnedRooms = new List<GameObject>();
+
+    // Declare the container of all available slots
+    List<GameObject> availableRooms = new List<GameObject>();
+
+    // Declare list of all prefabs that can be spawned
+    public GameObject[] roomPrefabs;
+
+    // Spawn the first room at 0,0
+
+    // For this and each subsequent room spawn,
+
+        // Check that room's tags for opening type
+        // If open above, add (Room.x, Room.y+1, opening down)  to availableRooms
+        // If open below, add (Room.x, Room.y-1, opening up)  to availableRooms
+        // If open left, add (Room.x-1, Room.y, opening right)  to availableRooms
+        // If open left, add (Room.x+1, Room.y, opening left)  to availableRooms
+
+        // Randomly select an element in availableRooms, it will be chosen to spawn in.
+        // Randomly select and appropriate room to spawn from roomPrefabs, according to the tag.
+        // Add the room to spawnedRooms and remove the room from availableRooms
+    
+    // Once the number of rooms to spawn surpasses or is equal to the number of avaialable rooms, add only rooms with 1 exit, so as not to overgenerate.
+
+
+
+
+
+
+
     public GameObject characterPrefab; // The character prefab you want to spawn.
     public Transform spawnPoint; // The transform of the spawn point.
+
+    
 
     private GameObject player_;
     private int playerDeaths = 0;

@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c3d6d33b7fabb40848c55436fac4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomPrefabs: []
   characterPrefab: {fileID: 2297165728207422936, guid: 2251967b957b4024d95d075719f9024a, type: 3}
   spawnPoint: {fileID: 10296604}
 --- !u!4 &10296604
