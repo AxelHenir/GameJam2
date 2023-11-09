@@ -19,6 +19,12 @@ TagManager:
   - LBR
   - TRB
   - RTL
+  - Spike
+  - BC
+  - GemR
+  - GemB
+  - GemG
+  - Coin
   layers:
   - Default
   - TransparentFX

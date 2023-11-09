@@ -2,21 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class CutsceneController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public VideoPlayer videoPlayer;
+
+
     void Start()
     {
-        // Play the cutscene
-        // Once complete, go to next scene
+        videoPlayer.loopPointReached += EndReached;
     }
 
-    public void StartGameplay()
+    public void PlayVideo()
     {
-        // Load the next scene
+        videoPlayer.Play();
+    }
+
+    void EndReached(VideoPlayer vp)
+    {
         SceneManager.LoadScene("MainGame");
     }
+
+
 
 
 

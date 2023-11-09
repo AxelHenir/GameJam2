@@ -1,9 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gamehandler : MonoBehaviour
 {
+    public Image fadeImage;
+    public float fadeSpeed = 1.0f;
+
+
+    public Graphic GemRIcon;
+    public Graphic GemGIcon;
+    public Graphic GemBIcon;
+
+    public float opaqueAlpha = 1.0f; // 1.0 means fully opaque
+    public float transparentAlpha = 0.3f; // 0.5 means semi-transparent, adjust as needed
+
+    private bool gemBCollected = false; 
+    private bool gemGCollected = false; 
+    private bool gemRCollected = false;
+
 
     public GameObject[] barracksPrefabs; // An array of room prefabs to choose from.
     public GameObject[] quartersPrefabs; // An array of room prefabs to choose from.
@@ -12,9 +28,6 @@ public class Gamehandler : MonoBehaviour
     public GameObject[] towerPrefabs; // An array of room prefabs to choose from.
     public GameObject[] vaultPrefabs; // An array of room prefabs to choose from.
 
-    public GameObject[] startRoomPrefabs;
-    public GameObject[] endRoomPrefabs;
-
     public Transform barracksStart;
     public Transform quartersStart;
     public Transform dungeonStart;
@@ -22,23 +35,23 @@ public class Gamehandler : MonoBehaviour
     public Transform towerStart;
     public Transform vaultStart;
 
+    public Transform spawnPoint; // The transform of the character respawn point.
 
-    public GameObject characterPrefab; // The character prefab you want to spawn.
-    public Transform spawnPoint; // The transform of the spawn point.
-
-    public Transform[] startingPositions;
-    public Transform[] endPositions;
-    
     private GameObject player_;
     private int playerDeaths = 0;
     
     void Start(){
 
+        Color newColor = GemRIcon.color;
+        newColor.a = transparentAlpha;
+        GemRIcon.color = newColor;
+        GemGIcon.color = newColor;
+        GemBIcon.color = newColor;
+
+
         player_ = GameObject.FindWithTag("Player");
 
         // Screen should be black..
-        // Controls are disabled during loading
-        disbaleControls();
 
         // Generate the dungeon in its entirety
         
@@ -49,12 +62,6 @@ public class Gamehandler : MonoBehaviour
         generateDungeon(1,5,towerStart,towerPrefabs);
         generateDungeon(2,3,vaultStart,vaultPrefabs);
 
-        //generateStartandEnd();
-       
-
-        // Fill dungeon with collectibles
-        generateCollectibles();
-
         // Reset the character
         resetCharacter();
         
@@ -62,64 +69,55 @@ public class Gamehandler : MonoBehaviour
         respawnCharacter();
 
         // Fade from black to level view
-        fadeFromBlack();
-
-        // Enable controls
-        enableControls();
+        FadeFromBlack();
 
         // Gameplay begins...
-
     }
 
-    
     void Update(){
-        
-    }
-
-    void disbaleControls(){
 
     }
 
-    void enableControls(){
-
+    public void collect(string type){
+        switch(type){
+            case "Coin":
+                collectCoin();
+                break;
+            case "GemR":
+                collectGemR();
+                break;
+            case "GemB":
+                collectGemB();
+                break;
+            case "GemG":
+                collectGemG();
+                break;
+        }
     }
 
-    void generateStartandEnd()
-    {
-
-
-        // generate the start
-        int randStartingPos = Random.Range(0, startingPositions.Length); //randomize the start position
-        transform.position = startingPositions[randStartingPos].position; //insert the coordinate of the chosen position
-        if (randStartingPos == 0)
-        {
-            Instantiate(startRoomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-            spawnPoint.position = transform.position;
-            //Debug.Log("inital room done right");
-        }
-        if (randStartingPos == 1)
-        {
-            Instantiate(startRoomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-            spawnPoint.position = transform.position;
-            //Debug.Log("inital room done right");
-        }
-
-
-        int randEndPos = Random.Range(0, endPositions.Length); //randomize the start position
-        transform.position = endPositions[randEndPos].position; //insert the coordinate of the chosen position
-
-        if (randEndPos == 0)
-        {
-            Instantiate(endRoomPrefabs[0], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-        }
-        if (randEndPos == 1)
-        {
-            Instantiate(endRoomPrefabs[1], transform.position, Quaternion.identity); //place the room or any specific room we want with coordinate and no rotation
-        }
-
-        //Debug.Log("end room done");
-
+    public void collectGemG(){
+        gemGCollected = true;
+        Color newColor = GemGIcon.color;
+        newColor.a = opaqueAlpha;
+        GemGIcon.color = newColor;
     }
+    public void collectGemR(){
+        gemRCollected = true;
+        Color newColor = GemRIcon.color;
+        newColor.a = opaqueAlpha;
+        GemRIcon.color = newColor;
+    }
+    public void collectGemB(){
+        gemBCollected = true;
+        Color newColor = GemBIcon.color;
+        newColor.a = opaqueAlpha;
+        GemBIcon.color = newColor;
+    }
+    public void collectCoin(){
+        Debug.Log("Coin");
+    }
+
+
 
     void generateDungeon(int gridWidth, int gridHeight, Transform rootPosition, GameObject[] roomPrefabs){
 
@@ -136,21 +134,10 @@ public class Gamehandler : MonoBehaviour
 
     }
 
-    void generateCollectibles(){
-
-    }
-
     void resetCharacter(){
 
-        if (characterPrefab != null && spawnPoint != null)
-        {
-            //player_ = Instantiate(characterPrefab, spawnPoint.position, Quaternion.identity);
-            playerDeaths = 0;
-        }
-        else
-        {
-            Debug.LogWarning("Character prefab or spawn point is not set!");
-        }
+        playerDeaths = 0;
+
     }
 
     public void playerDeath(){
@@ -171,30 +158,65 @@ public class Gamehandler : MonoBehaviour
 
     void respawnCharacter(){
 
-        fadeToBlack();
+        FadeToBlack();
         player_.transform.position = spawnPoint.position;
-        fadeFromBlack();
+        FadeFromBlack();
 
     }
 
     void gameOver(){
 
-        fadeToBlack();
+        FadeToBlack();
         Debug.Log("Game Over.");
-        fadeFromBlack();
+        // Load the end screen
+        // Button to reset character
+        // Button to exit
 
     }
 
-    void fadeFromBlack(){
-
+    public void FadeToBlack()
+    {
+        StartCoroutine(FadeToBlackRoutine());
     }
 
-    void fadeToBlack(){
-
+    private IEnumerator FadeToBlackRoutine()
+    {
+        while (fadeImage.color.a < 1.0f)
+        {
+            Color newColor = fadeImage.color;
+            newColor.a += fadeSpeed * Time.deltaTime;
+            fadeImage.color = newColor;
+            yield return null;
+        }
     }
 
-    public void finishTheGame(){
+    public void FadeFromBlack()
+    {
+        StartCoroutine(FadeFromBlackRoutine());
+    }
+
+    private IEnumerator FadeFromBlackRoutine()
+    {
+        while (fadeImage.color.a > 0.0f)
+        {
+            Color newColor = fadeImage.color;
+            newColor.a -= fadeSpeed * Time.deltaTime;
+            fadeImage.color = newColor;
+            yield return null;
+        }
+    }
+
+    public void finishTheGame()
+    {
         Debug.Log("The game is over");
+
+        #if UNITY_EDITOR
+            // In the Unity Editor, stop play mode
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // In a standalone build, quit the application
+            Application.Quit();
+        #endif
     }
 
 }
